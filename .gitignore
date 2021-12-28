@@ -5,3 +5,5 @@
 .settings
 .metadata
 /bin/
+.idea
+ProjetoFinal.iml
