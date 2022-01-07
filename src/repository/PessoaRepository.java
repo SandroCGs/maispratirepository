@@ -2,14 +2,16 @@ package repository;
 
 import model.PessoaModel;
 
+import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class PessoaRepository {
 
     PessoaModel [] arrayBase;
 
-    public PessoaRepository(){
-        PessoaModel [] arrayBase = new PessoaModel[1];
+    public PessoaRepository() {
+        arrayBase = new PessoaModel[2];
     }
 
     public void armazenarPessoa(PessoaModel pessoaModel) {
@@ -30,5 +32,18 @@ public class PessoaRepository {
 
     public PessoaModel[] retornarArray() {
         return arrayBase.clone();
+    }
+
+    public void alterarPessoa(PessoaModel pessoaNova, int id) {
+        PessoaModel pessoaModel = arrayBase[id];
+        if (Objects.nonNull(pessoaModel)) {
+            arrayBase[id] = pessoaNova;
+        } else {
+//            TODO: jogar exceção de negócio
+        }
+    }
+
+    public LocalDate getDataCadastro(int id) {
+        return arrayBase[id].getDataCadastro();
     }
 }
