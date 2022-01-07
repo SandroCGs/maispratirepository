@@ -27,4 +27,8 @@ public class PessoaRepository {
         PessoaModel[] novoArray = Arrays.copyOf(this.arrayBase, this.arrayBase.length * 2);
         this.arrayBase = novoArray;
     }
+
+    public PessoaModel[] retornarArray() {
+        return arrayBase.clone();
+    }
 }

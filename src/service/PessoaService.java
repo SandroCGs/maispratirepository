@@ -22,4 +22,8 @@ public class PessoaService {
             repository.armazenarPessoa(pessoaModel);
         }
     }
+
+    public PessoaModel[] retornarDados() {
+        return repository.retornarArray();
+    }
 }
