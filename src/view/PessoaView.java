@@ -83,4 +83,19 @@ public class PessoaView {
 
         return pessoaModel;
     }
+
+    private void mostrarPessoas() {
+        System.out.println("");
+        PessoaModel[] pessoaModels = pessoaService.retornarDados();
+        for (int i = 0; i < pessoaModels.length; i++) {
+            PessoaModel pessoaModel = pessoaModels[i];
+            if (pessoaModel != null) {
+                descreverPessoa(pessoaModel, i);
+            }
+        }
+    }
+
+    private void descreverPessoa(PessoaModel pessoaModel, int id) {
+        System.out.println(String.format("id = %d || %s", id, pessoaModel));
+    }
 }
