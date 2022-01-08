@@ -5,3 +5,7 @@
 .settings
 .metadata
 /bin/
+.idea
+ProjetoFinal.iml
+maispratirepository.iml
+/out/
