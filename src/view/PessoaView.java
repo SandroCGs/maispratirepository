@@ -30,6 +30,7 @@ public class PessoaView {
             if (func == 1) {
                 cadastrarPessoa();
             } else if (func == 2) {
+                mostrarPessoas();
             } else if (func == 3) {
                 atualizarPessoa();
             } else if (func == 0) {
@@ -42,9 +43,15 @@ public class PessoaView {
     }
 
     private void atualizarPessoa() {
-        PessoaModel pessoaNova = getPessoa();
+        System.out.println("\nQual o ID cadastrado você pretende modificar? ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
 
-//	TODO: chamar metódo responsável por atualizar
+        PessoaModel pessoa = getPessoa();
+        pessoa.setDataCadastro(LocalDate.now());
+        String notaFinal = perguntarNota();
+        pessoaService.modificarDados(pessoa, notaFinal, id);
+        System.out.println("Registro atualizado com sucesso!");
     }
 
     private void cadastrarPessoa() {

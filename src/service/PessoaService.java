@@ -26,4 +26,15 @@ public class PessoaService {
     public PessoaModel[] retornarDados() {
         return repository.retornarArray();
     }
+
+    public void modificarDados(PessoaModel pessoaNova, String notaFinal, int id) {
+        if (!notaFinal.isBlank()) {
+            AlunoModel alunoModel = new AlunoModel(pessoaNova, Double.parseDouble(notaFinal));
+            alunoModel.setDataCadastro(repository.getDataCadastro(id));
+            repository.alterarPessoa(alunoModel, id);
+        } else {
+            pessoaNova.setDataCadastro(repository.getDataCadastro(id));
+            repository.alterarPessoa(pessoaNova, id);
+        }
+    }
 }
