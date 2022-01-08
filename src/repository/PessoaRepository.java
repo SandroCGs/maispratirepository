@@ -46,4 +46,8 @@ public class PessoaRepository {
     public LocalDate getDataCadastro(int id) {
         return arrayBase[id].getDataCadastro();
     }
+
+    public void deletarCadastro(int id) {
+        arrayBase[id] = null;
+    }
 }

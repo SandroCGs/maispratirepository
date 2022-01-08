@@ -37,4 +37,8 @@ public class PessoaService {
             repository.alterarPessoa(pessoaNova, id);
         }
     }
+
+    public void deletarDados(int id) {
+        repository.deletarCadastro(id);
+    }
 }

@@ -23,7 +23,7 @@ public class PessoaView {
         int func = 1;
         while (func != 0) {
 
-            System.out.print("1 - Criar cadastro.\n2 - Mostrar todos cadastros.\n3 - Atualizar dado cadastrado.\n3 - Deletar Cadastro.\n4 - Encerrar aplicação.\n Digite a função que você deseja executar: ");
+            System.out.print("1 - Criar cadastro.\n2 - Mostrar todos cadastros.\n3 - Atualizar dado cadastrado.\n4 - Deletar Cadastro.\n0 - Encerrar aplicação.\n Digite a função que você deseja executar: ");
             func = scanner.nextInt();
             scanner.nextLine();
 
@@ -33,6 +33,8 @@ public class PessoaView {
                 mostrarPessoas();
             } else if (func == 3) {
                 atualizarPessoa();
+            } else if (func == 4) {
+                deletarPessoa();
             } else if (func == 0) {
                 System.out.println("Encerrar aplicação");
                 scanner.close();
@@ -104,5 +106,21 @@ public class PessoaView {
 
     private void descreverPessoa(PessoaModel pessoaModel, int id) {
         System.out.println(String.format("id = %d || %s", id, pessoaModel));
+    }
+
+    private void deletarPessoa() {
+        int id;
+        System.out.println("\nQual o ID cadastrado você pretende deletar? ");
+        id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Tem certeza que quer deletar esse registro? Digite s para confirmar: ");
+        String confirm = scanner.next();
+        if ("s".equalsIgnoreCase(confirm)) {
+            pessoaService.deletarDados(id);
+            System.out.println("\nRegistro deletado com sucesso!");
+        } else {
+            System.out.println("\nOperação cancelada!");
+        }
     }
 }
