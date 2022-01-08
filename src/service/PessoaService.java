@@ -4,8 +4,6 @@ import model.AlunoModel;
 import model.PessoaModel;
 import repository.PessoaRepository;
 
-import java.util.Objects;
-
 public class PessoaService {
 
     private PessoaRepository repository;
